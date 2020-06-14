@@ -128,7 +128,7 @@ namespace led_arduino
             light_thres = int.Parse(nguong_anh_sang.Text);
             humidity_thres = int.Parse(nguong_do_am.Text);
             temp_thres = int.Parse(nguong_nhiet_do.Text);
-            string str = "s " + temp_thres + " " + humidity_thres + " " + light_thres + "\n";
+            string str = "s " + temp_thres + " " + humidity_thres + " " + light_thres + "e";
             Console.Write(str);
             sp.Write(str);
         }
