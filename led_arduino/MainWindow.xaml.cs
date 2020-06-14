@@ -27,13 +27,13 @@ namespace led_arduino
     {
 
         SerialPort sp = new SerialPort();
-        float temp;
-        float humidity;
-        float light;
+        int temp;
+        int humidity;
+        int light;
 
-        float temp_thres;
-        float humidity_thres;
-        float light_thres;
+        int temp_thres;
+        int humidity_thres;
+        int light_thres;
 
         ChartValues<ObservableValue> TempValues = new ChartValues<ObservableValue> {};
         ChartValues<ObservableValue> HumiValues = new ChartValues<ObservableValue> {};
@@ -57,19 +57,19 @@ namespace led_arduino
                 new LineSeries
                 {
                     Title = "Humidity",
-                    LabelPoint = point => point.X + "%",
+                    LabelPoint = point => point.Y + "%",
                     Values = HumiValues
                 },
                 new LineSeries
                 {
                     Title = "Temperature",
-                    LabelPoint = point => point.X + "°C",
+                    LabelPoint = point => point.Y + "°C",
                     Values = TempValues,
                 },
                 new LineSeries
                 {
                     Title = "Light",
-                    LabelPoint = point => point.X + "%",
+                    LabelPoint = point => point.Y + "%",
                     Values = LightValues,
                 }
             };
@@ -125,9 +125,9 @@ namespace led_arduino
 
         private void ON_Click(object sender, RoutedEventArgs e)
         {
-            light_thres = float.Parse(nguong_anh_sang.Text);
-            humidity_thres = float.Parse(nguong_do_am.Text);
-            temp_thres = float.Parse(nguong_nhiet_do.Text);
+            light_thres = int.Parse(nguong_anh_sang.Text);
+            humidity_thres = int.Parse(nguong_do_am.Text);
+            temp_thres = int.Parse(nguong_nhiet_do.Text);
             string str = "s " + temp_thres + " " + humidity_thres + " " + light_thres + "\n";
             Console.Write(str);
             sp.Write(str);
@@ -139,9 +139,9 @@ namespace led_arduino
             string[] s = indata.Split(' ');
             if(s[0].Trim() == "0")
             {
-                temp = float.Parse(s[1]);
-                humidity = float.Parse(s[2]);
-                light = float.Parse(s[3]);
+                temp = int.Parse(s[1]);
+                humidity = int.Parse(s[2]);
+                light = int.Parse(s[3])*100/1024;
                 this.Dispatcher.Invoke(() =>
                 {
                     TempValues.Add(new ObservableValue(temp));
