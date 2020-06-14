@@ -30,6 +30,11 @@ namespace led_arduino
         float temp;
         float humidity;
         float light;
+
+        float temp_thres;
+        float humidity_thres;
+        float light_thres;
+
         ChartValues<ObservableValue> TempValues = new ChartValues<ObservableValue> {};
         ChartValues<ObservableValue> HumiValues = new ChartValues<ObservableValue> {};
         ChartValues<ObservableValue> LightValues = new ChartValues<ObservableValue> {};
@@ -118,14 +123,14 @@ namespace led_arduino
             }
         }
 
-        private void LEDON_Click(object sender, RoutedEventArgs e)
+        private void ON_Click(object sender, RoutedEventArgs e)
         {
-            sp.Write("1");
-        }
-
-        private void LEDOFF_Click(object sender, RoutedEventArgs e)
-        {
-            sp.Write("0");
+            light_thres = float.Parse(nguong_anh_sang.Text);
+            humidity_thres = float.Parse(nguong_do_am.Text);
+            temp_thres = float.Parse(nguong_nhiet_do.Text);
+            string str = "s " + temp_thres + " " + humidity_thres + " " + light_thres + "\n";
+            Console.Write(str);
+            sp.Write(str);
         }
 
         private void DataReceiveHandler(object sender, SerialDataReceivedEventArgs e)

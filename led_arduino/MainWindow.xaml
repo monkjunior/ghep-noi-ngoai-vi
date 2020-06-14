@@ -26,17 +26,16 @@
                 <TranslateTransform/>
             </TransformGroup>
         </Grid.RenderTransform>
-        <ComboBox x:Name="COM" ItemsSource="{Binding Source={StaticResource portNames}}" SelectionChanged="ComboBox_SelectionChanged" HorizontalAlignment="Left" Height="36" Margin="10,35,0,0" VerticalAlignment="Top" Width="99"/>
-        <TextBlock x:Name="status" HorizontalAlignment="Left" Height="20" Margin="10,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="92"/>
-        <Button x:Name="Conect" Content="Connect" HorizontalAlignment="Left" Height="22" Margin="176,13,0,0" VerticalAlignment="Top" Width="83" Click="Conect_Click"/>
-        <Button x:Name="Disconnect" Content="Disconnect" HorizontalAlignment="Left" Height="20" Margin="176,51,0,0" VerticalAlignment="Top" Width="83" Click="Disconnect_Click"/>
-        <Button x:Name="LEDON" Content="LED ON" HorizontalAlignment="Left" Height="22" Margin="286,13,0,0" VerticalAlignment="Top" Width="86" Click="LEDON_Click"/>
-        <Button x:Name="LEDOFF" Content="LED OFF" HorizontalAlignment="Left" Height="22" Margin="286,49,0,0" VerticalAlignment="Top" Width="86" Click="LEDOFF_Click"/>
+        <ComboBox x:Name="COM" ItemsSource="{Binding Source={StaticResource portNames}}" SelectionChanged="ComboBox_SelectionChanged" HorizontalAlignment="Left" Height="29" Margin="10,13,0,0" VerticalAlignment="Top" Width="99"/>
+        <TextBlock x:Name="status" HorizontalAlignment="Left" Height="20" Margin="10,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="99"/>
+        <Button x:Name="Conect" Content="Connect" HorizontalAlignment="Left" Height="22" Margin="10,80,0,0" VerticalAlignment="Top" Width="99" Click="Conect_Click"/>
+        <Button x:Name="Disconnect" Content="Disconnect" HorizontalAlignment="Left" Height="20" Margin="10,107,0,0" VerticalAlignment="Top" Width="99" Click="Disconnect_Click"/>
+        <Button x:Name="ON" Content="Send" HorizontalAlignment="Left" Height="22" Margin="152,105,0,0" VerticalAlignment="Top" Width="167" Click="ON_Click"/>
         <TextBlock x:Name="nhiet_do_label" HorizontalAlignment="Left" Height="18" Margin="440,13,0,0" TextWrapping="Wrap" Text="Nhiet do" VerticalAlignment="Top" Width="49"/>
         <TextBlock x:Name="do_am_label" HorizontalAlignment="Left" Height="18" Margin="440,36,0,0" TextWrapping="Wrap" Text="Do am" VerticalAlignment="Top" Width="41"/>
         <TextBlock x:Name="anh_sang_label" HorizontalAlignment="Left" Height="18" Margin="440,59,0,0" TextWrapping="Wrap" Text="Anh sang" VerticalAlignment="Top" Width="59"/>
 
-        <lvc:CartesianChart Series="{Binding SeriesCollection}" Margin="10,129,64,55" LegendLocation="Right" >
+        <lvc:CartesianChart Series="{Binding SeriesCollection}" Margin="10,164,64,55" LegendLocation="Right" >
             <lvc:CartesianChart.AxisY>
                 <lvc:Axis ></lvc:Axis>
             </lvc:CartesianChart.AxisY>
@@ -48,5 +47,11 @@
         <TextBlock x:Name="nhiet_do" HorizontalAlignment="Left" Height="18" Margin="524,12,0,0" TextWrapping="Wrap" Text="no data" VerticalAlignment="Top" Width="49"/>
         <TextBlock x:Name="do_am" HorizontalAlignment="Left" Height="18" Margin="524,38,0,0" TextWrapping="Wrap" Text="no data" VerticalAlignment="Top" Width="49"/>
         <TextBlock x:Name="anh_sang" HorizontalAlignment="Left" Height="18" Margin="524,59,0,0" TextWrapping="Wrap" Text="no data" VerticalAlignment="Top" Width="49"/>
+        <TextBox  HorizontalAlignment="Left" Height="20" Margin="152,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="127" Text="Temperature threshold"/>
+        <TextBox  HorizontalAlignment="Left" Height="20" Margin="152,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="127" Text="Humidity threshold"/>
+        <TextBox  HorizontalAlignment="Left" Height="20" Margin="152,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="127" Text="Light threshold"/>
+        <TextBox x:Name="nguong_nhiet_do"  HorizontalAlignment="Left" Height="20" Margin="284,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="35" />
+        <TextBox x:Name="nguong_do_am" HorizontalAlignment="Left" Height="20" Margin="284,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="35" />
+        <TextBox x:Name="nguong_anh_sang" HorizontalAlignment="Left" Height="20" Margin="284,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="35"/>
     </Grid>
 </Window>
